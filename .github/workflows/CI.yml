@@ -14,13 +14,11 @@ on:
 jobs:
   # This workflow contains a single job called "build"
   build:
+    # name of the job
+    name: build
+    
     # The type of runner that the job will run on
-    runs-on: ${{ matrix.os }}
-    strategy:
-      matrix:
-        os: [ubuntu-16.04, ubuntu-18.04]
-        node: [6, 8, 10]
-
+    runs-on: ubuntu-latest
 
     # Steps represent a sequence of tasks that will be executed as part of the job
     steps:
