@@ -9,4 +9,4 @@ outputs: # specify the output variables
       description: ‘The time when running workflow.’ # description of <time>
 runs: # how to run the action? Javascript or Docker?
     using: ‘node12’ # nodejs with version 12.x
-    main: timelogger.js
+    main: timelogger.js #name of the javacript file
