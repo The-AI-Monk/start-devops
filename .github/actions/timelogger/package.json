@@ -4,10 +4,10 @@
 	"description": "",  
 	"main": "timelogger.js",  
 	"scripts": {    
-		"test": "echo \"Error: no test specified\" && exit 1"  	},  “
-	keywords": [],  
+		"test": "echo \"Error: no test specified\" && exit 1"  	},  
+	"keywords": [],  
 	"author": "",  
-	“license": "ISC",  
+	"license": "ISC",  
 	"dependencies": {    
 		"@actions/core": "^1.2.4",    
 		"@actions/github": "^3.0.0"  
