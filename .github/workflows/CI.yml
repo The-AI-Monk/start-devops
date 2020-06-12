@@ -38,6 +38,11 @@ jobs:
       run: |
         echo "$REPO_SECRET"
         echo "$MY_SECRET"
+    
+    - name: npm install
+      uses: bahmutov/npm-install@v1
+      with:
+        working-directory: ./.github/actions/timelogger
         
     # Runs a set of commands using the runners shell
     - name: Run my own GitHub Action
