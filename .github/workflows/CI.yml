@@ -52,4 +52,4 @@ jobs:
     - name: Run my own GitHub Action
       uses: ./.github/actions/timelogger
       with: 
-        workflow-name: CI 
+        workflow-name: $GITHUB_WORKFLOW
