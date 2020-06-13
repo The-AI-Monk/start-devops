@@ -53,4 +53,13 @@ jobs:
       uses: ./.github/actions/timelogger
       with: 
         workflow-name: ${{ github.workflow }}
+        
+    # comment on Pull Request
+    - name: Comment Pull Request
+      uses: thollander/actions-comment-pull-request@1.0.0
+      with:
+        # Message that should be printed in the pull request
+        message: test
+        # Github token of the repository (automatically created by Github)
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
