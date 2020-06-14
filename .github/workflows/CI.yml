@@ -61,4 +61,4 @@ jobs:
           # GITHUB_TOKEN secret
           repo-token: ${{ secrets.GITHUB_TOKEN }} 
           # Message to comment
-          message: ${{ format(Workflow executed at {0}, steps.timelogger.outputs.time) }}
+          message: ${{ format('Workflow executed at {0}.', steps.timelogger.outputs.time) }}
