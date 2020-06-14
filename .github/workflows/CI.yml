@@ -49,7 +49,8 @@ jobs:
         npm install
         
     # Runs a set of commands using the runners shell
-    - name: Run my own GitHub Action
+    - id: timelogger
+      name: Run my own GitHub Action
       uses: ./.github/actions/timelogger
       with: 
         workflow-name: ${{ github.workflow }}
@@ -60,4 +61,4 @@ jobs:
           # GITHUB_TOKEN secret
           repo-token: ${{ secrets.GITHUB_TOKEN }} 
           # Message to comment
-          message: test
+          message: ${{ format(Workflow executed at {0}, steps.timelogger.outputs.time) }}
