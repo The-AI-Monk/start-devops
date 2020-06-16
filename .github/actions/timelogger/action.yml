@@ -1,0 +1,12 @@
+name: 'Time Logger' # name of the workflow
+description: 'Record the time when running workflow.' # description of the workflow
+inputs: # specify the input variables
+    workflow-name: # first input id
+      description: 'Name of the workflow.' # description of <workflow-name>
+      required: true # the caller of the action must provide this input
+outputs: # specify the output variables
+    time: # first output id
+      description: 'The time when running workflow.' # description of <time>
+runs: # how to run the action? Javascript or Docker?
+    using: 'node12' # nodejs with version 12.x
+    main: timelogger.js #name of the javacript file
