@@ -62,3 +62,35 @@ jobs:
           repo-token: ${{ secrets.GITHUB_TOKEN }} 
           # Message to comment
           message: ${{ format('Workflow executed at {0}.', steps.timelogger.outputs.time) }}
+
+  # This workflow contains a single job called "build-react"
+  build-react:
+    # name of the job
+    name: build-react
+    
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+    # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+    - uses: actions/checkout@v2
+    
+    # install node js to use npm
+    - name: Use Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: 12
+    
+    # package restore
+    - name: yarn actions (yaml)
+      uses: sergioramos/yarn-actions@v6
+    
+    # testing
+    - run: |
+        npm run test
+    
+    # build
+    - run: |
+        npm run build
+    
