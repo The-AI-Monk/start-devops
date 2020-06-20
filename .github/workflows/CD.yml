@@ -1,20 +1,20 @@
 # This workflow will do a clean install of node dependencies, build the source code and run tests across different versions of node
 # For more information see: https://help.github.com/actions/language-and-framework-guides/using-nodejs-with-github-actions
 
-name: Node.js CD
+name: Node.js Continuous Delivery
 
 on:
   push:
     branches: [ master ]
     
 jobs:
-  continuousDelivery:
+  build:
 
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [14.x]
+        node-version: [10.x, 12.x, 14.x]
 
     steps:
     - uses: actions/checkout@v2
@@ -33,24 +33,3 @@ jobs:
         name: react-static-website-code 
         # A file, directory or wildcard pattern that describes what to upload
         path: build
-  continuousDeployment:
-    runs-on: ubuntu-latest
-    needs: continuousDelivery
-    steps:
-      - name: Checkout 🛎️
-        uses: actions/checkout@v2 # If you're using actions/checkout@v2 you must set persist-credentials to false in most cases for the deployment to work correctly.
-        with:
-          persist-credentials: false
-      - name: Download a Build Artifact
-        uses: actions/download-artifact@v2
-        with:
-          # Artifact name
-          name: react-static-website-code 
-          # Destination path
-          path: build
-      - name: Deploy 🚀
-        uses: JamesIves/github-pages-deploy-action@releases/v3
-        with:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          BRANCH: gh-pages # The branch the action should deploy to.
-          FOLDER: build # The folder the action should deploy.
