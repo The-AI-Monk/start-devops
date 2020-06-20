@@ -84,6 +84,11 @@ jobs:
     - name: yarn actions (yaml)
       uses: sergioramos/yarn-actions@v6
     
+    # enforce coding standard
+    - uses: hallee/eslint-action@1.0.3
+      with:
+        repo-token: ${{secrets.GITHUB_TOKEN}}
+    
     # testing
     - run: |
         npm run test
@@ -91,4 +96,3 @@ jobs:
     # build
     - run: |
         npm run build
-    
