@@ -1,5 +1,6 @@
 {
   "name": "devops-app",
+  "homepage": "/start-devops",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
