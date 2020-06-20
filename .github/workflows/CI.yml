@@ -85,9 +85,8 @@ jobs:
       uses: sergioramos/yarn-actions@v6
     
     # enforce coding standard
-    - uses: hallee/eslint-action@1.0.3
-      with:
-        repo-token: ${{secrets.GITHUB_TOKEN}}
+    - run: |
+        npx eslint src
     
     # testing
     - run: |
